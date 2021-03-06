@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +19,8 @@ namespace FlappyBird
         public FlappyBirdGame()
         {
             InitializeComponent();
+            gameTimer.Stop();
+            scoreText.Text = "Press Enter to Start!";
         }
 
         private void gameTimerEvent(object sender, EventArgs e)
@@ -55,7 +57,11 @@ namespace FlappyBird
 
         private void gameKeyIsDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Enter)
+            {
+                gameTimer.Start();
+            }
+            if (e.KeyCode == Keys.Space)
             {
                 gravity = - 10;
             }
